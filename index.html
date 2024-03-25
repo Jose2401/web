@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sobre mi :D</title>
+<link rel="shortcut icon" href="https://www.freeiconspng.com/uploads/pokeball-icon-8.png">
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function mostrarPagina(id) {
+    // Oculta todas las páginas
+    var paginas = document.querySelectorAll('section[id^="pagina"]');
+    paginas.forEach(function(pagina) {
+        pagina.style.display = 'none';
+    });
+
+    // Muestra la página deseada
+    var pagina = document.getElementById(id);
+    pagina.style.display = 'block';
+}
+
+function regresar() {
+    // Oculta todas las páginas
+    var paginas = document.querySelectorAll('section[id^="pagina"]');
+    paginas.forEach(function(pagina) {
+        if (pagina.id !== 'paginaInicio'){
+            pagina.style.display = 'none';
+        }
+    });
+
+    // Muestra la página de inicio
+    var paginaInicio = document.getElementById('paginaInicio');
+    paginaInicio.style.display = 'block';
+}
+</script>
+
+  <style>
+    /* Estableciendo la fuente base y tamaño */
+    html {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+
+
+    #pagina_top ol {
+        counter-reset: section; /* Contador para los números */
+        list-style-type: none; /* Remover estilo de lista */
+        padding: 0;
+        margin-left: 1rem;
+    }
+
+    #pagina_top ol li {
+        counter-increment: section; /* Incrementar contador */
+        margin-bottom: 0.5rem; /* Espacio entre elementos de la lista */
+        padding-left: 0.5rem; /* Espacio a la izquierda del texto */
+        font-size: 15pt;
+        text-align: left;
+        position: relative; /* Posicionamiento relativo para el número */
+    }
+
+    #pagina_top ol li::before {
+        content: counter(section) ". "; /* Añadir número antes del texto */
+        position: absolute; /* Posicionamiento absoluto */
+        left: -1.5rem; /* Posición a la izquierda del texto */
+        font-weight: bold; /* Texto en negrita */
+        color: #ff4500; /* Color naranja para los números */
+        
+    }
+
+      button {
+          font-size: 1.4rem;
+          padding: 0.5rem;
+          border: 1px solid #b3e0ff;
+          border-radius: 5px;
+          margin-top: 0.5rem;
+          background-color: #030ead;
+          color: #fff;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+
+      button:hover {
+          background-color: #7a989d;
+      }
+    body {
+      background-image: url("https://images4.alphacoders.com/127/1274987.png");
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      backdrop-filter: blur(8px);
+
+      .content {
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+    }
+    
+    #xd {
+            list-style-type: none;
+            font-size: 1rem; /* Tamaño de letra más grande */
+            overflow: auto;
+            padding: 1rem 0;
+        }
+    #xd li a {
+        display: block;
+        padding: 1rem;
+        color: #f81a6f;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    #xd li a:hover {
+        background-color: #570a61;
+    }
+    /* Estilo especial para el texto del nav */
+    #xd li a {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    align-items: center;
+    width: 80%;
+    margin-left: auto;
+  margin-right: auto;
+  }
+  .galeria img {
+    width: 100%; /* Asegura que la imagen cubra el espacio de la celda de la grilla */
+    max-width: 200px; /* Máximo ancho de las imágenes */
+    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
+    object-fit: cover; /* Asegura que la imagen cubra toda el área asignada sin estirarse */
+    object-position: center; /* Centra la imagen dentro de su contenedor */
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+  }
+
+  </style>
+</head>
+
+<body onLoad="MM_preloadImages('Casita 2.png','Chat 2.png','PREGUNTA 2.png','perfil 2.png')">
+<table width="87%" border="0" align="center" cellspacing="5" >
+  <tbody>
+    <tr>
+      <td colspan="4" align="center" valign="middle"><center><img src="assets/BANNER.png" width="1000"  alt=""/></center></td>
+    </tr>
+    <tr>
+      <td width="28%" align="center"><a href="#pagina Vacaciones" onclick="mostrarPagina('pagina Vacaciones')" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('image2','','assets/Casita 2.png',1)"><img src="assets/Casita 1.png" alt="" width="100" height="100" id="image2"></a></td>
+      <td align="center"><a href="#pagina Pasatiempos" onclick="mostrarPagina('pagina Pasatiempos')" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','assets/Chat 2.png',1)"><img src="assets/Chat 1.png" alt="" width="100" height="100" id="Image3"></a></td>
+      <td width="24%" align="center"><a href="#pagina Cosas que me gustan" onclick="mostrarPagina('pagina Cosas que me gustan')" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','assets/PREGUNTA 2.png',1)"><img src="assets/PREGUNTA 1.png" alt="" width="100" height="100" id="Image4"></a></td>
+      <td width="23%" align="center"><a href="#pagina_top" onclick="mostrarPagina('pagina_top')" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','assets/perfil 2.png',1)"><img src="assets/perfil 1.png" alt="" width="100" height="100" id="Image5"></a></td>
+    </tr>
+    <tr>
+      <td height="341" align="center">
+        <iframe width="240" height="220" src="https://www.youtube.com/embed/kNF-8tNtY7Q?si=I7h0jWvSijJpAhHd" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </td>
+      <td colspan="3" rowspan="2" align="justify" style="background-color: hsla(219, 100%, 86%, 0.767);border-radius: 25px; ">
+        <section id="paginaInicio" style="padding: 2rem;">
+            <center><p style="color: blue; font-size: 20pt"><strong>Todo Sobre Mi :D</strong></p><hr color="green" size="4" width="500"></center>
+            <br>
+            <p style="font-family: arial; font-size: 16pt">Hola, soy yo :D, mi nombre es José Carlos Espinosa, un apasionado estudiante de la Escuela Superior de Cómputo (<strong>ESCOM</strong>) del Instituto Politécnico Nacional. Nací en la hermosa ciudad de <strong>Zacatecas</strong>, pero ahora me encuentro estudiando aquí, realizando este proyecto a las 3 de la mañana :p. </p>
+            <center><img src="https://i.pinimg.com/564x/3d/cc/f3/3dccf36fc2395f71d4543ccd176d11c8.jpg" width="240" height="220"></center>
+            <p style="font-family: arial; font-size: 16pt">Ven esa imagen del caballerito de hollow knight de arriba? ;o, pues si, efectivamente soy ese y esta es mí <strong>página</strong>. <br><br>En esta página voy a compartirles un poco de lo que hago, que no es solo tarea y proyectos. También me gusta salir a rodar en bici, platicar con mis amigos y, de vez en cuando, despejarme con algo de música o una buena serie. Si quieres conocer más sobre mi puedes presionar los distintos botones de arriba para explorar otras secciones de mi vida -_- </p>
+              <br><br> <center>
+                <font size="4">En los iconos de arriba, Presione...  </font>
+                  <br><strong>Casa -> Vacaciones</strong>
+                  <br><strong>Chat -> Pasatiempos</strong>
+                  <br><strong>? -> Cosas que me gustan y asi xd</strong>
+                  <br><strong>Persona -> La seccion mas personal, top 5 top 5</strong>
+              </center>
+        </section><br>
+        <section id="pagina Pasatiempos" style="display: none; padding: 2rem;">
+            <p style="font-family: arial; font-size: 18pt; color: #33ff5f"><strong>Pasatiempos</strong></p>
+            <p style="font-family: arial; font-size: 15pt">Yo todo el día no hago nada y en la noche descanso :P, no es cierto, algunos de mis pasatiempos son...</p>
+            <p style="font-family: arial; font-size: 15pt"><strong><font style=" font-size: 16pt">Jugar videojuegos: </font></strong>Los videojuegos son mi vía de escape después de un largo día de clases. Me encanta sumergirme en aventuras épicas o enfrentarme a desafíos estratégicos. Ya sea en consola o PC, los videojuegos son mi forma favorita de entretenimiento y desafío.</p>
+            <center><img src="https://i.pinimg.com/564x/84/ef/fd/84effd796bb1a2e67ff0d4f8d6919d3a.jpg" width="200" ></center>
+            <p style="font-family: arial; font-size: 15pt"><strong><font style=" font-size: 16pt">Programar: </font></strong>La programación no es solo parte de mis estudios, sino una pasión. Disfruto creando y resolviendo problemas con código, es como un rompecabezas lógico con infinitas posibilidades. Cada línea de código es un paso hacia la creación de algo nuevo y emocionante.</p>
+            <center><img src="https://i.pinimg.com/564x/5f/18/48/5f18482a28ae3ce6122f9d1df7541b46.jpg" width="200" ></center>
+            <p style="font-family: arial; font-size: 15pt"><strong><font style=" font-size: 16pt">Leer Ficción: </font></strong>La lectura de ficción es mi método preferido para desconectar. Me transporta a otros mundos y estimula mi imaginación. Ya sea ciencia ficción o fantasía, los libros son mi entrada a experiencias y aventuras que van más allá de la realidad cotidiana.</p>
+            <center><img src="https://i.pinimg.com/564x/0b/4d/95/0b4d953ccf1484f1080fd72ebc8a2ead.jpg" width="200" ></center>
+            <p style="font-family: arial; font-size: 15pt"><strong><font style=" font-size: 16pt">Ver Series: </font></strong>Ver series es otro de mis hobbies. Me gusta seguir diferentes tramas y conectar con los personajes. Es una manera de relajarme y a la vez mantenerme al tanto de las conversaciones culturales del momento.</p>
+            <center><img src="https://i.pinimg.com/originals/65/39/5e/65395e7d4d8ea15941c538b54e293f60.gif" width="200" ></center>
+            <p style="font-family: arial; font-size: 15pt"><strong><font style=" font-size: 16pt">Dormir y No Hacer Nada: </font></strong>Finalmente, valoro mucho los momentos de descanso. Dormir o simplemente estar en reposo son actividades esenciales para mí. Me ayudan a recargar energías y a veces, no hacer nada es lo mejor que puedo hacer.</p>
+            <center><img src="https://i.pinimg.com/564x/ba/c6/79/bac67993602abb2b9e0025ef038a2d76.jpg" width="200" ></center>
+            <button onclick="regresar()">Volver :p</button>
+        </section>
+        <section id="pagina Vacaciones" style="display: none; padding: 2rem;">
+            <p style="font-family: arial; font-size: 18pt; color: #ffcf33"><strong>Vacaciones</strong></p>
+            <p style="font-family: arial; font-size: 15pt">Aca de reales, <strong>no hice nada en vacaciones xd</strong> igual considero que no me la pase mal, unicamente estuve trabajando y estudiento para el, en ese entonces, próximo semestre xd. <br><br> Sin embargo, por efectos de este proyecto, imagenaremos que fui a la playa y la luna y pondre fotos de la playa y asi como si si hubiera ido(voyatenerquecentrarundivdentrodeunatablaayudaporfavor). Imágenes de mis vacaciones:</p>
+            <br><center><div class="galeria">
+              <img src="https://img.freepik.com/foto-gratis/playa-tropical_74190-188.jpg" alt="Playa 1">
+              <img src="https://images.unsplash.com/photo-1566342088293-38debd381c63?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGxheWElMjBkZSUyMG5vY2hlfGVufDB8fDB8fHww" alt="Playa 2">
+              <img src="https://fotografias-compromiso.atresmedia.com/clipping/cmsimages02/2016/02/18/6ECDF4EE-746F-445F-A4D3-777E51158381/69.jpg" alt="Playa 3">
+              <img src="https://img.freepik.com/fotos-premium/cabana-playa-iluminada-noche_1072138-10284.jpg" alt="Playa 4">
+              <img src="https://images.ecestaticos.com/SetZyWnH-6gsIjK6Iwne9UMMLtw=/0x172:3425x2101/1338x752/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F15e%2F319%2Fbc4%2F15e319bc42752e33b2516888b655c2b6.jpg" alt="Playa 5">
+              <img src="https://media.gq.com.mx/photos/623ca14055341de2041fc632/1:1/w_2344,h_2344,c_limit/luna.jpg" alt="Playa 6">
+            </div></center>
+            <button onclick="regresar()">Volver :p</button>
+        </section>
+        <section id="pagina_top" style="display: none; padding: 2rem;">
+          <p style="font-family: arial; font-size: 18pt; color: #3341ff"><strong>Top 5 Maneras de Perder el Tiempo</strong></p>
+          <ol style="font-family: arial; font-size: 15pt; text-align: left;">
+            <br><li><strong>La Procrastinación Profesional:</strong> Abrir un documento importante, mirarlo fijamente durante horas y luego decidir que es el mejor momento para organizar tu colección de especias por orden alfabético.</li>
+            <br><li><strong>El Bucle de Vídeos:</strong> Decirte a ti mismo "solo un video más" en YouTube y de repente darte cuenta de que sabes cómo construir una casa en un árbol, pero aún no has empezado tu trabajo.</li>
+            <br><li><strong>El Desfile de la Nevera:</strong> Visitar la nevera cada 15 minutos con la esperanza de que algo nuevo y emocionante haya aparecido desde tu última expedición.</li>
+            <br><li><strong>El Scroll Eterno:</strong> Desplazarte por las redes sociales hasta que te encuentras viendo las fotos de la boda de alguien que ni siquiera recuerdas haber conocido.</li>
+            <br><li><strong>El Duelo de la Pestaña:</strong> Tener 37 pestañas abiertas en el navegador y no poder recordar por qué las abriste, pero temer cerrar alguna por si acaso es importante.</li>
+          </ol>
+          <button onclick="regresar()">Volver :p</button>
+      </section>
+        <section id="pagina Cosas que me gustan" style="display: none; padding: 2rem;">
+            <p style="font-family: arial; font-size: 18pt; color: #e733ff"><strong>Cosas que me gustan</strong></p>
+            <p style="font-family: arial; font-size: 16pt"><strong># 1 </strong></p>
+            <center> <iframe width="240" height="220" src="https://www.youtube.com/embed/EHFCXH6FILk?si=a9uelNRLYggKLXR1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+            <br><p style="font-family: arial; font-size: 16pt"><strong># 2 </strong></p>
+            <p style="font-family: arial; font-size: 15pt">Pasar tiempo de calidad con mis amigos, palticar o salir con ellos</p>
+            <br><p style="font-family: arial; font-size: 16pt"><strong># 3 </strong></p>
+            <center><img src="https://i.pinimg.com/564x/4d/f5/79/4df5792ef10b9070b1483b3c6bcfd4be.jpg" width="240"></center>
+            <br><p style="font-family: arial; font-size: 16pt"><strong># 4 </strong></p>
+            <p style="font-family: arial; font-size: 15pt">Las computadoras</p>
+            <br><p style="font-family: arial; font-size: 16pt"><strong># 5 </strong></p>
+            <p style="font-family: arial; font-size: 15pt">Pokémon</p>
+            <br><p style="font-family: arial; font-size: 16pt"><strong># 6 </strong></p>
+            <p style="font-family: arial; font-size: 15pt">ACABAR ESTO</p>
+            <button onclick="regresar()">Volver :p</button> 
+        </section>
+
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle" style="background-color: hsla(312, 69%, 82%, 0.767);border-radius: 25px;">   
+        <p style="font-family: arial; font-size: 14pt; color: #aa168a"><strong>Otros proyectos</strong></p>
+        <ul id="xd">
+            <li><a href="EjJS.html">Ejemplos de JS</a></li>
+            <li><a href="COSIE.html">Doc COSIE</a></li>
+            <li><a href="hmtlxd.html">Ejemplos de HTML</a></li>
+            <li><a href="tablas.html">Tablas de multiplicar en html</a></li>
+            <li><a href="datosForm/form.html">Formuario básico</a></li>
+            <li><a href="#" onclick="mostrarPagina('paginaInicio')">volver al inicio</a></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<marquee scrollamount="12"><font face="arial" size="5" color="#00ff22">por José Carlos Espinosa Martínez</font></marquee>
+<marquee><font face="arial" size="5" color="#33d6ff">4BM2 | ESCOM</font></marquee>
+<marquee scrollamount="200"><font face="arial" size="5" color="#33d6ff">:D</font></marquee>
+</body>
+</html>

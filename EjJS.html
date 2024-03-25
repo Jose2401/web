@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JavaScript</title>
+    <style>
+        /* Estilos base y reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estableciendo la fuente base y tamaño */
+        html {
+            font-size: 10px; /* Tamaño base para usar rem */
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Estilo del encabezado */
+        header {
+            background-color: #e6f7ff; /* Un azul claro */
+            color: #00303f; /* Un azul oscuro */
+            padding: 2rem;
+            text-align: center;
+            border-radius: 0 0 25px 25px;
+        }
+
+        /* Estilo de la navegación */
+        nav {
+            background-color: #d1e0e0; /* Un tono azul-verde suave */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            overflow: auto;
+            border-right: 1px solid #b3e0ff;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            font-size: 1.6rem; /* Tamaño de letra más grande */
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 1rem;
+            color: #00303f;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #75b19c;
+        }
+
+        /* Estilo especial para el texto del nav */
+        nav ul li a {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Estilo de las secciones */
+        section {
+            margin-left: 220px;
+            padding: 2rem;
+            background-color: #fff; /* Fondo blanco para las secciones */
+            border: none; /* Quitamos los bordes */
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 1.6rem; /* Aumentamos el tamaño de la letra */
+        }
+
+        /* Estilo para los resultados */
+        #ResMult, #ResPar, #ResTablas, #ResVector, #ResMayor, #ResMedia, #ResOrden, #ResText{
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #e6f7ff; /* Un azul claro para el fondo del resultado */
+            border-radius: 5px;
+            border: 1px solid #b3e0ff; /* Un azul más claro para el borde */
+        }
+
+        /* Estilo de botones e inputs */
+        button, input[type="number"], input[type="text"], textarea {
+            font-size: 1.4rem;
+            padding: 0.5rem;
+            border: 1px solid #b3e0ff;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+
+        button {
+            background-color: #00303f;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #7a9d96;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+            }
+
+            section {
+                margin: 20px 0;
+            }
+        }
+
+        /* Estilos para agrupar inputs y sus etiquetas */
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            margin-right: 10px;
+        }
+
+        .input-group input,
+        .input-group button {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        footer {
+
+            text-align: center;
+
+            padding: 20px 0;
+
+        }
+        footer a {
+
+            text-decoration: none;
+
+            color: #01579b;
+
+            font-weight: bold;
+
+            font-size: 2rem;
+
+        }
+
+
+
+        footer a:hover {
+
+            color: #f06292;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Ejercicios JavaScript</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#Par">Par o Impar</a></li>
+            <li><a href="#TablasMult">Tablas de multiplicar</a></li>
+            <li><a href="#Mult">Multiplicaciones</a></li>
+            <li><a href="#Mayor">Numero Mayor</a></li>
+            <li><a href="#Vectores">Suma de Vectores</a></li>
+            <li><a href="#Media">Media</a></li>
+            <li><a href="#Orden">Ordenar numeros</a></li>
+            <li><a href="#Texto">Textos</a></li>
+        </ul>
+    </nav>
+
+    <section id="Par">
+        <h2>Par o Impar?</h2>
+
+        <label>Número:</label>
+        <input type="number" id="numPar">
+
+        <button onclick="ParImpar()">Enviar</button>
+
+        <label id="ResPar" style="display: none;"></label>
+    </section>
+
+    <section id="TablasMult">
+        <h2>Tablas de Multiplicar</h2>
+
+        <label>Número:</label>
+        <input type="number" id="numTablasMult">
+
+        <button onclick="TablasMult()">Enviar</button>
+        <label id="ResTablas" style="display: none;"></label>
+    </section>
+
+    <section id="Mult">
+        <h2>Multiplicación</h2>
+
+        <label>Número 1:</label>
+        <input type="number" id="num1Mult">
+
+        <label>Número 2:</label>
+        <input type="number" id="num2Mult">
+        <br>
+        <button onclick="multiplicar()">Enviar</button>
+
+        <label id="ResMult" style="display: none;"></label>
+
+    </section>
+
+    <section id="Mayor">
+        <h2>Numero Mayor</h2>
+
+        <label>Números:</label>
+        <input type="text" id="ArrayMayor">
+
+        <button onclick="NumeroMayor()">Enviar</button>
+
+        <label id="ResMayor" style="display: none;"></label>
+    </section>
+
+    <section id="Vectores">
+        <h2>Suma de Vectores</h2>
+
+        <label>Vector 1:</label>
+        <input type="text" id="Vec1">
+
+        <label>Vector 2:</label>
+        <input type="text" id="Vec2">
+        <br>
+        <button onclick="SumaVectores()">Enviar</button>
+
+        <label id="ResVector" style="display: none;"></label>
+    </section>
+
+    <section id="Media">
+        <h2>Media</h2>
+        <label>Números:</label>
+        <input type="text" id="ArrayMedia">
+
+        <button onclick="Media()">Enviar</button>
+
+        <label id="ResMedia" style="display: none;"></label>
+    </section>
+
+    <section id="Orden">
+        <h2>Ordenar numeros</h2>
+        <label>Números:</label>
+        <input type="text" id="ArrayOrden">
+
+        <button onclick="ordenarBurbuja()">Burbuja</button>
+        <button onclick="ordenarInsercion()">Inserción</button>
+        <button onclick="ordenarSeleccion()">Selección</button>
+
+        <label id="ResOrden" style="display: none;"></label>
+    </section>
+
+    <section id="Texto">
+        <h2>Analizador de Texto</h2>
+        <textarea id="textBox" style="resize: none;" rows="10" cols="50"></textarea>
+
+        <br>
+        <button onclick="NText()">Enviar</button>
+
+        <label id="ResText" style="display: none;"></labelid>
+    </section>
+
+    <br><footer>
+
+        <a href="index.html">Volver a la Página de Inicio</a>
+      
+    </footer>
+
+    <script type="text/javascript">
+
+        //Funcion para determinar si es par o impar
+        function ParImpar() {
+            var numero = document.getElementById("numPar").value;
+            numero = parseInt(numero);
+
+            if (numero % 2 == 0) {
+                document.getElementById("ResPar").innerHTML = numero + " es par";
+            }
+            else {
+                document.getElementById("ResPar").innerHTML = numero + " es impar";
+            }
+            document.getElementById("ResPar").style.display = 'block';
+        }
+
+        //Funcion para mostrar las tablas de multiplicar
+        function TablasMult() {
+            var numero = document.getElementById("numTablasMult").value;
+            numero = parseInt(numero);
+            var tablasRes = document.getElementById("ResTablas");
+            var tabla = "";
+
+            for (var i = 1; i <= 10; i++) {
+                tabla += numero + "X" + i + "=" + i * numero + "<br>";
+            }
+
+            tablasRes.innerHTML = tabla;
+            tablasRes.style.display = 'block';
+        }
+
+        //Funcion para multiplicar dos numeros con suma
+        function multiplicar() {
+            var n1 = document.getElementById("num1Mult").value;
+            var n2 = document.getElementById("num2Mult").value;
+
+            n1 = parseInt(n1);
+            n2 = parseInt(n2);
+
+            var res = 0;
+
+            for (var i = 0; i < n2; i++) {
+                res += n1;
+            }
+
+            document.getElementById("ResMult").innerHTML = "Resultado: " + res;
+            document.getElementById("ResMult").style.display = 'block';
+        }
+
+        //Funcion para obtener el numero mayor en una cadena
+        function NumeroMayor() {
+            var cadena = document.getElementById("ArrayMayor").value;
+
+            var regex = /\d+/g;
+
+            var Mayor = 0;
+            var esNumero;
+            while (((esNumero = regex.exec(cadena)) !== null)) {
+                var numeroActual = parseInt(esNumero);
+                if (numeroActual > Mayor) {
+                    Mayor = numeroActual;
+                }
+            }
+
+            document.getElementById("ResMayor").innerHTML = "Mayor= " + Mayor;
+            document.getElementById("ResMayor").style.display = 'block';
+        }
+
+        //Funcion para sumar vectores 
+        function SumaVectores() {
+            var vector1 = document.getElementById("Vec1").value;
+            var vector2 = document.getElementById("Vec2").value;
+
+            var regex = /\d+/g;
+
+            var Vec1 = [];
+            var Vec2 = [];
+            var VecR = [];
+
+            var Res = "";
+
+            var esNumero;
+            while (((esNumero = regex.exec(vector1)) !== null)) {
+                Vec1.push(parseInt(esNumero[0]))
+            }
+
+            while (((esNumero = regex.exec(vector2)) !== null)) {
+                Vec2.push(parseInt(esNumero[0]))
+            }
+
+            var n = Math.max(Vec1.length, Vec2.length);
+
+            for (var i = 0; i < n; i++) {
+                var s1 = Vec1[i] || 0;
+                var s2 = Vec2[i] || 0;
+
+                VecR[i] = s1 + s2;
+                Res += VecR[i] + ", ";
+            }
+
+            document.getElementById("ResVector").innerHTML = "Vector R = (" + Res + ")";
+            document.getElementById("ResVector").style.display = 'block';
+        }
+
+        //Funcion para calcular la media
+        function Media() {
+            var cadena = document.getElementById("ArrayMedia").value;
+
+            var regex = /\d+/g;
+
+            var n = 0;
+            var suma = 0;
+            var esNumero;
+            while (((esNumero = regex.exec(cadena)) !== null)) {
+                var numeroActual = parseInt(esNumero);
+                n++;
+                suma += numeroActual;
+            }
+
+            var res = suma / n;
+            document.getElementById("ResMedia").innerHTML = "Media= " + res;
+            document.getElementById("ResMedia").style.display = 'block';
+        }
+
+
+
+        //Funcion para analizar el texto y obtener su longitud y cantidad de letras en mayusculas y minusculas
+        function NText() {
+            var txt = document.getElementById("textBox").value;
+            var longitud = txt.length;
+            var nMayusculas = 0;
+            var nMinusculas = 0;
+            var txtMinus= txt.toLowerCase();
+            var txtMayus= txt.toUpperCase();
+
+            for (var i = 0; i < longitud; i++) {
+                var caracter = txt.charAt(i);
+                if (caracter >= 'A' && caracter <= 'Z') {
+                    nMayusculas++;
+                } else if (caracter >= 'a' && caracter <= 'z') {
+                    nMinusculas++;
+                }
+            }
+
+            var res= "Longitud: "+ longitud+"<br>"+"Num. mayusculas: "+ nMayusculas+"<br>"+"Num. minusculas: "+ nMinusculas+"<br><br>"
+            +"Texto en Mayusculas: <br>"+ txtMayus+"<br><br>"+"Texto en Minusculas: <br>"+ txtMinus+"<br>";
+
+            document.getElementById("ResText").innerHTML=res;
+            document.getElementById("ResText").style.display = 'block';
+        }
+
+        function ordenarBurbuja() {
+            let arr = document.getElementById('ArrayOrden').value.split(',').map(Number);
+            // Llamada a la función de ordenamiento por burbuja y mostrar resultado
+            document.getElementById('ResOrden').innerText = ordenarPorBurbuja(arr).join(', ');
+            document.getElementById('ResOrden').style.display = 'block';
+        }
+
+        function ordenarPorBurbuja(arr) {
+            let n = arr.length;
+            for (let i = 0; i < n - 1; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+        function ordenarInsercion() {
+            let arr = document.getElementById('ArrayOrden').value.split(',').map(Number);
+            // Llamada a la función de ordenamiento por inserción y mostrar resultado
+            document.getElementById('ResOrden').innerText = ordenarPorInsercion(arr).join(', ');
+            document.getElementById('ResOrden').style.display = 'block';
+        }
+
+        function ordenarPorInsercion(arr) {
+            let n = arr.length;
+            for (let i = 1; i < n; i++) {
+                let actual = arr[i];
+                let j = i - 1;
+                while (j >= 0 && arr[j] > actual) {
+                    arr[j + 1] = arr[j];
+                    j--;
+                }
+                arr[j + 1] = actual;
+            }
+            return arr;
+        }
+
+        function ordenarSeleccion() {
+            let arr = document.getElementById('ArrayOrden').value.split(',').map(Number);
+            // Llamada a la función de ordenamiento por selección y mostrar resultado
+            document.getElementById('ResOrden').innerText = ordenarPorSeleccion(arr).join(', ');
+            document.getElementById('ResOrden').style.display = 'block';
+        }
+
+        function ordenarPorSeleccion(arr) {
+            let n = arr.length;
+            for (let i = 0; i < n - 1; i++) {
+                let minIdx = i;
+                for (let j = i + 1; j < n; j++) {
+                    if (arr[j] < arr[minIdx]) {
+                        minIdx = j;
+                    }
+                }
+                if (minIdx != i) {
+                    let temp = arr[i];
+                    arr[i] = arr[minIdx];
+                    arr[minIdx] = temp;
+                }
+            }
+            return arr;
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Tabla de Multiplicar Dinámica</title>
+
+<style>
+
+  body {
+
+    font-family: 'Arial', sans-serif;
+
+    background-color: #f7f7f7;
+
+    color: #333;
+
+    padding: 20px;
+
+  }
+  header {
+      background-color: #a6dcef;
+      color: #fff;
+      padding: 10px;
+    border-radius: 5px;
+      text-align: center;
+    
+  }
+
+
+
+  #numeroN {
+
+    padding: 10px;
+
+    margin-right: 10px;
+
+    border: 2px solid #a6dcef; /* Azul pastel */
+
+    border-radius: 5px;
+
+    outline: none;
+
+  }
+
+
+
+  #numeroN:focus {
+
+    border-color: #96c8e1; /* Azul pastel más oscuro para el foco */
+
+  }
+
+
+
+  button {
+
+    padding: 10px 15px;
+
+    border: none;
+
+    background-color: #f8aec0; /* Rosa pastel */
+
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+
+  }
+
+
+
+  button:hover {
+
+    background-color: #e89bac; /* Rosa pastel más oscuro al pasar el cursor */
+
+  }
+
+
+
+  table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+
+  }
+
+
+
+  table, th, td {
+
+    border: 1px solid #ccc; /* Bordes de color gris claro */
+
+  }
+
+
+
+  th, td {
+
+    text-align: center;
+
+    padding: 8px;
+
+    background-color: #eae7f8; /* Morado pastel */
+
+    color: #333;
+
+  }
+
+
+
+  th {
+
+    background-color: #dcd1f9; /* Morado pastel más oscuro */
+
+    color: white;
+
+  }
+
+
+
+  tr:nth-child(even) {
+
+    background-color: #f2f2f2; /* Alternar colores de fondo para las filas */
+
+  }
+
+
+
+  table tr:nth-child(1) {
+
+    background-color: #d3ebd5; /* Verde pastel para la primera fila */
+
+  }
+
+
+
+  table tr td:nth-child(1) {
+
+    background-color: #d3ebd5; /* Verde pastel para la primera columna */
+
+  }
+
+
+
+  table td {
+
+    border-radius: 3px; /* Bordes redondeados para las celdas */
+
+  }
+
+  footer {
+
+    text-align: center;
+
+    padding: 20px 0;
+
+    background-color: #e1f5fe;
+
+  }
+  footer a {
+
+    text-decoration: none;
+
+    color: #01579b;
+
+    font-weight: bold;
+
+  }
+
+
+
+  footer a:hover {
+
+    color: #f06292;
+
+  }
+
+</style>
+  
+
+</head>
+  
+<body>
+
+
+  <header>
+        <h1>Generador Tablas de Multiplicar</h1>
+  </header>
+
+
+
+<!-- Input para ingresar el número n -->
+
+<input type="number" id="numeroN" placeholder="Ingresa un número n">
+
+
+
+<!-- Botón para generar la tabla -->
+
+<button onclick="generarTabla()">Generar Tabla</button>
+
+
+
+<!-- Div donde se insertará la tabla -->
+
+<div id="tablaMultiplicar"></div>
+
+<br><footer>
+
+  <a href="index.html">Volver a la Página de Inicio</a>
+
+</footer>
+
+<script>
+
+function generarTabla() {
+
+  // Obtener el número n del input
+
+  var n = document.getElementById('numeroN').value;
+
+  
+
+  // Validar que n sea un número válido
+
+  if(n <= 0 || isNaN(n)) {
+
+    alert('Por favor, ingresa un número válido.');
+
+    return;
+
+  }
+
+  
+
+  // Iniciar la tabla
+
+  var tabla = '<table border="1">';
+
+
+
+  // Generar las filas y columnas de la tabla
+
+  for(var i = 1; i <= n; i++) {
+
+    tabla += '<tr>';
+
+    for(var j = 1; j <= n; j++) {
+
+      tabla += '<td>' + i + ' x ' + j + ' = ' + (i * j) + '</td>';
+
+    }
+
+    tabla += '</tr>';
+
+  }
+
+  
+
+  // Cerrar la tabla
+
+  tabla += '</table>';
+
+  
+
+  // Insertar la tabla en el div
+
+  document.getElementById('tablaMultiplicar').innerHTML = tabla;
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
+

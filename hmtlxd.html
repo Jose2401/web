@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width">
+
+  <title>Ejercicios HTML</title>
+
+  <style>
+    #index {
+
+      display: flex;
+
+      justify-content: space-around;
+
+      list-style-type: none;
+
+      padding: 0;
+      background-color: #333;
+      border-radius: 5px;
+
+
+
+    }
+
+    #index li {
+
+      display: inline;
+
+      margin-right: 20px;
+
+    }
+
+    #index a {
+
+      text-decoration: none;
+
+      color: #ffffff;
+
+    }
+
+    #index a:hover {
+
+      text-decoration: underline;
+
+    }
+
+    body {
+
+      font-family: 'Arial', sans-serif;
+
+      background-color: #f9f9f9;
+
+      color: #333;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+
+
+    header {
+      position: sticky;
+      top: 0; 
+
+      background-color: #e1f5fe;
+
+      padding: 10px 0;
+
+      text-align: center;
+
+      border-radius: 0px 0px 30px 30px;
+
+    }
+
+
+
+    header h1 {
+
+      margin: 0;
+
+      color: #01579b;
+
+    }
+
+
+
+    nav ul {
+
+      padding: 0;
+
+      margin: 0;
+
+    }
+
+
+
+    nav li {
+
+      display: inline;
+
+      margin-right: 20px;
+
+    }
+
+
+
+    nav a {
+
+      text-decoration: none;
+
+      color: #01579b;
+
+      font-weight: bold;
+
+    }
+
+
+
+    nav a:hover {
+
+      color: #f06292;
+
+    }
+
+
+
+    section {
+
+      background-color: #ffffff;
+
+      margin: 20px;
+
+      padding: 20px;
+
+      border-radius: 8px;
+
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    }
+
+
+
+    button {
+
+      background-color: #f06292;
+
+      color: white;
+
+      border: none;
+
+      padding: 10px 20px;
+
+      margin-top: 10px;
+
+      border-radius: 5px;
+
+      cursor: pointer;
+
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    }
+
+
+
+    button:hover {
+
+      background-color: #e91e63;
+
+    }
+
+
+
+    input[type="number"] {
+
+      border: 1px solid #ddd;
+
+      padding: 10px;
+
+      border-radius: 4px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+
+    footer {
+
+      text-align: center;
+
+      padding: 20px 0;
+
+      background-color: #e1f5fe;
+
+    }
+
+
+
+    footer a {
+
+      text-decoration: none;
+
+      color: #01579b;
+
+      font-weight: bold;
+
+    }
+
+
+
+    footer a:hover {
+
+      color: #f06292;
+
+    }
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <header>
+
+    <h1>Página de ejercicios en HTML</h1>
+
+    <nav>
+
+      <ul id="index">
+
+        <li><a href="#mayor-de-numeros">Mayor de Números</a></li>
+
+        <li><a href="#numeros-pares">Números Pares</a></li>
+
+        <li><a href="#suma-numeros">Suma de Números</a></li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+
+  <section id="mayor-de-numeros">
+
+    <h2>Mayor de Números</h2>
+
+    <form id="formulario">
+
+      <label for="dato1">Primer número:</label>
+
+      <input type="number" id="dato1" required>
+
+      <br>
+
+      <label for="dato2">Segundo número:</label>
+
+      <input type="number" id="dato2" required>
+
+      <br>
+
+      <label for="dato3">Tercer número:</label>
+
+      <input type="number" id="dato3" required>
+
+      <br>
+
+      <button type="button" onclick="mayorDeNumeros()">Calcular</button>
+
+    </form>
+
+    <p id="resultado"></p>
+
+  </section>
+
+
+
+  <section id="numeros-pares">
+
+    <h2>Números Pares</h2>
+
+    <button type="button" onclick="numerosPares()">Mostrar Números Pares</button>
+
+    <p id="resultPar"></p>
+
+  </section>
+
+
+
+  <section id="suma-numeros">
+
+    <h2>Suma de los primeros 100 números</h2>
+
+    <button type="button" onclick="sumaDeNumeros()">Mostrar suma</button>
+
+    <p id="resultSuma"></p>
+
+  </section>
+
+
+
+  <footer>
+
+    <a href="index.html">Volver a la Página de Inicio</a>
+
+  </footer>
+
+
+
+  <script>
+
+    function mayorDeNumeros() {
+
+      var dato1 = parseFloat(document.getElementById("dato1").value);
+
+      var dato2 = parseFloat(document.getElementById("dato2").value);
+
+      var dato3 = parseFloat(document.getElementById("dato3").value);
+
+
+
+      if (isNaN(dato1) || isNaN(dato2) || isNaN(dato3)) {
+
+        alert("Por favor ingrese números válidos.");
+
+        return;
+
+      }
+
+
+
+      var resultado = document.getElementById("resultado");
+
+      resultado.innerHTML = 'Del conjunto de datos ' + dato1 + ', ' + dato2 + ' y ' + dato3 + ' el mayor es ';
+
+
+
+      if (dato1 > dato2 && dato1 > dato3) {
+
+        resultado.innerHTML += '<strong>' + dato1 + '</strong>';
+
+      } else if (dato2 > dato3 && dato2 > dato1) {
+
+        resultado.innerHTML += '<strong>' + dato2 + '</strong>';
+
+      } else {
+
+        resultado.innerHTML += '<strong>' + dato3 + '</strong>';
+
+      }
+
+    }
+
+
+
+    function numerosPares() {
+
+      let resultado = "";
+
+      for (let i = 1; i <= 200; i++) {
+
+        if (i % 2 === 0) {
+
+          resultado += i + " ";
+
+        }
+
+      }
+
+      document.getElementById("resultPar").textContent = "Pares entre 1 - 200: " + resultado;
+
+    }
+
+
+
+    function sumaDeNumeros() {
+
+      let suma = 0;
+
+      for (let i = 1; i <= 100; i++) {
+
+        suma += i;
+
+      }
+
+      document.getElementById("resultSuma").textContent = "Suma de los numeros del 1 al 100: " + suma;
+
+    }
+
+  </script>
+
+</body>
+
+
+
+</html>
